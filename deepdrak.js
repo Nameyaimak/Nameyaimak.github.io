@@ -1,5 +1,5 @@
 const toggleSwitch = document.getElementById("darkmode-toggle");
-const background = document.querySelector(".background");
+const background = document.querySelector("#background");
 const content = document.querySelector(".content");
 const navContainer = document.querySelector(".nav-container");
 const navLinks = document.querySelectorAll(".nav-container a");
