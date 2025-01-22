@@ -6,6 +6,8 @@ const navLinks = document.querySelectorAll(".nav-container a");
 const navHeader = document.querySelector(".nav-container h1");
 const hrElement = document.querySelector('.divider');
 const skillHeader = document.querySelector('h1.skill');
+const certificate = document.querySelector('h1.Certificate');
+const footer = document.querySelector('h1.footer')
 
 // ฟังก์ชันสำหรับตั้งค่าธีม
 function applyTheme(isDarkMode) {
@@ -22,6 +24,8 @@ function applyTheme(isDarkMode) {
         navHeader.style.color = "#ffffff";
         hrElement.style.backgroundColor = "#ffffff"; // เปลี่ยนสี hr
         skillHeader.style.color = "#ffffff";
+        certificate.style.color = "#ffffff";
+        footer.style.color = "#ffffff";
 
         // เปลี่ยนสีส่วนของ skills
         const skillElements = document.querySelectorAll(".skill h3, .skill p");
@@ -49,6 +53,8 @@ function applyTheme(isDarkMode) {
         navHeader.style.color = "#000000";
         hrElement.style.backgroundColor = "#000000"; // เปลี่ยนสี hr
         skillHeader.style.color = "#000000";
+        certificate.style.color = "#000000";
+        footer.style.color = "#000000";
 
         // เปลี่ยนสีส่วนของ skills
         const skillElements = document.querySelectorAll(".skill h3, .skill p");
