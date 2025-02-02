@@ -118,26 +118,41 @@ input:checked + label + .background {
 
 .content {
    display: flex;
-   align-items: self-start ;   
+   align-items: center;
+   flex-wrap: wrap;
    justify-content: center; /* จัดให้อยู่กึ่งกลางในแนวตั้ง */
    box-sizing: border-box;  /* ป้องกัน padding/margin มีผลกับขนาด */
    transition: background-color 0.3s, color 0.3s;
-   gap: 4rem;
+   gap: 5rem;
+   padding: 20px;
    margin-top: 150px;
 }
-@media screen and (min-width: 1200px) {
+
 .box {
-   width: 400px;
-   height: 400px;
-   background-image:url(/img/679bb385106bc962a926cbf0638d2109.jpg);
-   background-size: cover;
-   border-radius: 30%;
+   width: 80%;
+   max-width: 400px;
+   height: auto;
+   aspect-ratio: 1 / 1; /* ให้เป็นสี่เหลี่ยมจัตุรัส  */
+   background-color: #00b7ff;
+   border-radius: 50px;
    box-shadow: 0 0 20px 10px #ff5733;
    transition: box-shadow 0.5s ease-in-out; /* ให้เปลี่ยนเงาดูสมูท */
    box-sizing: border-box;
+   background-image: url('/img/ea061952-a687-49fa-8b06-60bf946601f9.jpeg');
+   background-size: cover; /* ปรับให้รูปเต็มกรอบ */
+   background-position: center; /* จัดให้อยู่ตรงกลาง */
+   background-repeat: no-repeat;
 }
+.text_one {
+   max-width: auto ;
+   text-align: center;
+   word-wrap: break-word; /* ให้ตัดคำเมื่อข้อความยาวเกิน */
+   overflow-wrap: break-word;
+   padding: 10px;
+   font-family: "Rubik", sans-serif;
+   
 }
-h1.name {
+/* h1.name {
    font-family: "Rubik", sans-serif;
    display: flex;
    justify-content: center;
@@ -145,14 +160,14 @@ h1.name {
    gap: 1rem;
    text-align: center;
    margin-left: -100px;
-}
+} */
 span {
    color: #00b7ff;
 }
 span.name {
    color: #00b7ff;
 }
-h3.name {
+/* h3.name {
    font-size: larger;
    font-family: "Rubik", sans-serif;
    display: flex;
@@ -170,13 +185,13 @@ h4.name {
    align-items: center;
    gap: 1rem;
    text-align: center;
-}
+} */
 .social-icon {
    display: flex;
    justify-content: center; /* จัดให้อยู่กึ่งกลาง */
    gap: 1.5rem; /* เว้นระยะระหว่างไอคอน */
    margin-top: 30px; /* เพิ่มระยะห่างระหว่างข้อความและไอคอน */
-   margin-left: -290px;
+   align-items: center; 
 }
 .social-icon a {
     width: 3rem;
@@ -398,7 +413,7 @@ p.js {
    animation: rotate360 1s ease-in-out;
 }
 /* จบส่วนสกิล */
-#Certificate {
+.grid {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
    gap: 20px;
