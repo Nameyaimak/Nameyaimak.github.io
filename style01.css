@@ -13,7 +13,18 @@ html, body {
    box-sizing: border-box;
    scroll-behavior: smooth;   
 }
+body.darkmode {
+  background-color: #121212;
+  color: #ffffff;
+}
 
+body.darkmode .menu {
+  background-color: #222;
+}
+
+body.darkmode .menu a {
+  color: #fff;
+}
 .nav-container {
    margin: 0;
    padding: 20px;
@@ -31,6 +42,86 @@ html, body {
 header {
    width: 100%;
    background-color: rgb(255, 255, 255);
+}
+/* --- Hamburger Button --- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+}
+
+.hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+  transform-origin: center;
+  display: block;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(45deg);
+  position: relative;
+  top: 10.5px; /* เลื่อนลงครึ่งนึงของความสูง */
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(-45deg);
+  position: relative;
+  top: -10.5px; /* เลื่อนขึ้นครึ่งนึง */
+}
+
+
+/* --- เมนูมือถือ --- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .menu {
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background: #fff;
+    flex-direction: column;
+    padding: 25px 20px;  /* เพิ่ม padding ให้เมนูดูโปร่ง */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    display: flex;
+    gap: 25px;  /* เพิ่มระยะห่างปุ่มเมนู */
+    min-width: 180px; /* ขยายให้เมนูดูไม่อึดอัด */
+  }
+
+  .menu.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu a {
+    color: #000;
+    text-decoration: none;
+    padding: 12px 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
 }
 
 ul.menu {
@@ -337,6 +428,22 @@ h3.js {
    justify-content: center; 
    text-align: center; 
 }
+h3.cpp {
+   font-family: "Rubik", sans-serif;
+   display: flex; 
+   flex-direction: column; 
+   align-items: center; 
+   justify-content: center; 
+   text-align: center; 
+}
+h3.py {
+   font-family: "Rubik", sans-serif;
+   display: flex; 
+   flex-direction: column; 
+   align-items: center; 
+   justify-content: center; 
+   text-align: center; 
+}
 p.html {
    font-family: "Rubik", sans-serif;
    margin-top: -20px;
@@ -358,6 +465,26 @@ p.css {
    text-align: center; 
 }
 p.js {
+   font-family: "Rubik", sans-serif;
+   margin-top: -20px;
+   font-size: 12px;
+   display: flex; 
+   flex-direction: column; 
+   align-items: center; 
+   justify-content: center; 
+   text-align: center; 
+}
+p.cpp {
+   font-family: "Rubik", sans-serif;
+   margin-top: -20px;
+   font-size: 12px;
+   display: flex; 
+   flex-direction: column; 
+   align-items: center; 
+   justify-content: center; 
+   text-align: center; 
+}
+p.py {
    font-family: "Rubik", sans-serif;
    margin-top: -20px;
    font-size: 12px;
@@ -401,6 +528,30 @@ p.js {
    padding: 20px;
    border-radius: 20px;
 }
+.cpp-img {
+   width: 80px;
+   display: flex; 
+   flex-direction: column; 
+   align-items: center; 
+   justify-content: center; 
+   text-align: center; 
+   margin-left: 20px;
+   background-color: #ffffff;
+   padding: 20px;
+   border-radius: 20px;
+}
+.py-img {
+   width: 80px;
+   display: flex; 
+   flex-direction: column; 
+   align-items: center; 
+   justify-content: center; 
+   text-align: center; 
+   margin-left: 20px;
+   background-color: #ffffff;
+   padding: 20px;
+   border-radius: 20px;
+}
 @keyframes rotate360 {
    from {
        transform: rotate(0deg);
@@ -409,7 +560,7 @@ p.js {
        transform: rotate(360deg);
    }
 }
-.html-img:hover, .css-img:hover, .js-img:hover { 
+.html-img:hover, .css-img:hover, .js-img:hover, .cpp-img:hover, .py-img:hover { 
    animation: rotate360 1s ease-in-out;
 }
 /* จบส่วนสกิล */
@@ -421,15 +572,69 @@ p.js {
    margin: 0 auto;
 }
 .certificate-item {
-
    padding: 15px;
 }
 .certificate-item img {
    width: 100%;
    height: auto;
-   border-radius: px;
+   border-radius: 8px; /* แก้ border-radius ให้มีค่า */
    object-fit: contain;
+   cursor: pointer; /* ให้รู้ว่าคลิกได้ */
+   transition: transform 0.3s ease;
 }
+
+/* คลาสสำหรับขยายรูป */
+.certificate-item img.active {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   width: auto;
+   max-width: 90vw;
+   max-height: 90vh;
+   transform: translate(-50%, -50%) scale(1);
+   z-index: 1001;
+   box-shadow: 0 0 20px rgba(0,0,0,0.8);
+   border-radius: 12px;
+   cursor: zoom-out;
+}
+
+/* overlay พื้นหลังมืด */
+/* overlay ด้านหลังภาพขยาย */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+#overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ภาพ certificate ที่ถูกคลิกจะขยาย */
+.certificate-item img.active {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: auto;          /* กำหนดให้ width ออโต้ */
+  height: 80vh;         /* กำหนดสูงสุดเท่ากัน */
+  max-width: 90vw;      /* กำหนดกว้างสุด */
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 0 30px #000;
+  transition: all 0.3s ease;
+  object-fit: contain;  /* ให้ภาพไม่ผิดสัดส่วน */
+}
+
 h1.Certificate {
    font-family: "Rubik", sans-serif;
    display: flex;
@@ -439,6 +644,8 @@ h1.Certificate {
    gap: 1rem;
    font-size: 50px;
 }
+
+/* ส่วนท้าย */
 h1.footer {
    font-family: "Rubik", sans-serif;
    display: flex;
