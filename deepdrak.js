@@ -9,6 +9,7 @@ const skillHeader = document.querySelector("h1.skill");
 const certificate = document.querySelector("h1.Certificate");
 const footer = document.querySelector("h1.footer");
 
+
 // ฟังก์ชันสำหรับตั้งค่าธีม
 function applyTheme(isDarkMode) {
     if (isDarkMode) {
@@ -37,7 +38,7 @@ function applyTheme(isDarkMode) {
             skill.style.color = "#ffffff"; // เปลี่ยนสีข้อความ
         });
 
-        const skillBoxes = document.querySelectorAll(".html-img, .css-img, .js-img");
+        const skillBoxes = document.querySelectorAll(".html-img, .css-img, .js-img, .cpp-img, .py-img");
         skillBoxes.forEach(box => {
             box.style.backgroundColor = "#ffffff"; // พื้นหลังสีขาว
             box.style.boxShadow = "0 0 25px #00b7ff"; // เงาสีฟ้า เปลี่ยนสีเงาตรงนี้
@@ -73,7 +74,7 @@ function applyTheme(isDarkMode) {
             skill.style.color = "#000000"; // เปลี่ยนสีข้อความ
         });
 
-        const skillBoxes = document.querySelectorAll(".html-img, .css-img, .js-img");
+        const skillBoxes = document.querySelectorAll(".html-img, .css-img, .js-img, .cpp-img, .py-img");
         skillBoxes.forEach(box => {
             box.style.backgroundColor = "#ffffff"; // สีพื้นหลังของกล่อง
             box.style.boxShadow = "0 0 25px #ff5733"; // เงาสีส้ม เปลี่ยนสีเงาตรงนี้
@@ -144,4 +145,36 @@ function eraseText() {
 
 // เริ่มทำงานเมื่อโหลดหน้าจอ
 window.onload = typeWriter;
+// ----------- เมนูมือถือ (hamburger menu) ------------
+ document.addEventListener('DOMContentLoaded', () => {
+  // ปุ่ม hamburger menu
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.querySelector('.menu');
+
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+    menuToggle.classList.toggle('active');
+  });
+
+  // ปุ่ม toggle dark mode
+  const darkToggle = document.getElementById('darkmode-toggle');
+
+  darkToggle.addEventListener('change', () => {
+    document.body.classList.toggle('darkmode', darkToggle.checked);
+  });
+});
+const images = document.querySelectorAll('.certificate-item img');
+const overlay = document.getElementById('overlay');
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    img.classList.add('active');
+    overlay.classList.add('active');
+  });
+});
+
+overlay.addEventListener('click', () => {
+  images.forEach(img => img.classList.remove('active'));
+  overlay.classList.remove('active');
+});
     
