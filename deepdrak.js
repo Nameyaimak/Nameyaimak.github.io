@@ -105,7 +105,7 @@ document.querySelectorAll('*').forEach(element => {
 
 // ฟังก์ชันพิมพ์ข้อความอัตโนมัติ
 const texts = [
-    "Nawapol Horthong"
+    "Nawaphon Horthong"
 ];
 let speed = 100; // ความเร็วในการพิมพ์
 let eraseSpeed = 50; // ความเร็วในการลบ
@@ -178,3 +178,4 @@ overlay.addEventListener('click', () => {
   overlay.classList.remove('active');
 });
     
+
