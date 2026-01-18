@@ -7,10 +7,10 @@
     <meta property="og:image" content ="https://i.pinimg.com/736x/79/4c/30/794c30d3e07ff81c3be27a4367031ad6.jpg">
     <link rel="shortcut icon" href="/img/9bff5450-3861-429d-bec2-f31fa4d17a32.jpeg">
     <title>nwp</title>
-    <link rel="stylesheet" href="style01.css"> <!-- CSS -->
-    <link rel="stylesheet" href="all.min.css"> <!-- CSS -->
-    <link rel="stylesheet" href="fontawesome.min.css"> <!-- CSS -->
-    <script src="deepdrak.js" defer></script> <!-- JS -->
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style01.css"> 
+    <script src="deepdrak.js" defer></script> 
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <header>
             <nav>
                 <div class="nav-container">
-                    <h1 class="brand-name"><a href="#background">Nawaphon Horthong</h1></a>
+                    <h1 class="brand-name"><a href="#home">NAWAPHON HORTHONG</a></h1>
                     <!-- toggle navbar -->
                     <button id="menu-toggle" class="hamburger">
                         <span class="bar"></span>
@@ -27,13 +27,15 @@
                         <span class="bar"></span>
                     </button>
                     <ul class="menu">
-                        <li><a href="#background">Home</a></li>
+                        <li><a href="#home">Home</a></li>
                         <li><a href="#skills">Skill</a></li>
-                        <li><a href="#Certificate">Certificate</a></li>
+                        <li><a href="#projects">Project</a></li> 
                         <li><a href="#footer">Contact</a></li>
                         <!-- Darkmode Toggle -->
-                        <input type="checkbox" id="darkmode-toggle" />
-                        <label for="darkmode-toggle"></label>
+                        <div style="display: flex; align-items: center;">
+                            <input type="checkbox" id="darkmode-toggle" />
+                            <label for="darkmode-toggle"></label>
+                        </div>
                     </ul>
                 </div>
             </nav>
@@ -41,15 +43,15 @@
     </div>
     <!-- จบส่วนหัว -->
 
-    <!-- เริ่มส่วนเนื้อหาแนะนำตัว -->
-    <section class="content">
-        <div class="box"> </div>
+    <!-- เริ่มส่วนเนื้อหาแนะนำตัว (Home) -->
+    <section id="home" class="content section-page">
+        <div class="box"></div>
         <div class="text_one">
             <h1 class="name">
                 Hello my name is <span class="name">Nawaphon Horthong</span>
             </h1>
             <h3 class="name">
-                My nick name is <span>frame</span>
+                My nickname is <span>frame</span>
             </h3>
             <h4 class="name">
                 Now I am a student of <span>Samut Sakhon Wittayalai School.</span>
@@ -71,8 +73,7 @@
                     </a>
                 </div>
                 <div class="social-icon-spotify">
-                    <a href="https://open.spotify.com/user/h94qataigznf5e0wvfkkynmep?si=513c365fc13347a4"
-                        target="_blank">
+                    <a href="https://open.spotify.com/" target="_blank">
                         <i class="fa-brands fa-spotify"></i>
                     </a>
                 </div>
@@ -80,56 +81,83 @@
         </div>
     </section>
     <!-- จบส่วนเนื้อหาแนะนำตัว -->
+
     <!-- เริ่มส่วนเนื้อหาสกิล -->
-    <section id="skills">
-        <hr class="divider">
+    <section id="skills" class="section-page">
         <h1 class="skill">Skills</h1>
         <p class="skillhead">Skills I can do now</p>
         <div class="skill">
             <div class="skill-html">
-                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg"
-                    class="html-img">
-                <br>
+                <div class="html-img">
+                    <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg" alt="HTML5" width="50">
+                </div>
                 <h3 class="html">HTML</h3>
                 <p class="html">Basic</p>
             </div>
             <div class="skill-css">
-                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg"
-                    class="css-img">
-                <br>
+                <div class="css-img">
+                    <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg" alt="CSS3" width="50">
+                </div>
                 <h3 class="css">CSS</h3>
                 <p class="css">Basic</p>
             </div>
             <div class="skill-js">
-                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg"
-                    class="js-img">
-                <br>
+                <div class="js-img">
+                    <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" alt="JS" width="50">
+                </div>
                 <h3 class="js">JAVASCRIPT</h3>
                 <p class="js">Basic</p>
             </div>
             <div class="skill-cpp">
-                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/cplusplus-colored.svg"
-                    class="cpp-img">
-                <br>
+                <div class="cpp-img">
+                    <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/cplusplus-colored.svg" alt="C++" width="50">
+                </div>
                 <h3 class="cpp">C++</h3>
                 <p class="cpp">Basic</p>
             </div>
             <div class="skill-py">
-                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg"
-                    class="py-img">
-                <br>
+                <div class="py-img">
+                    <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg" alt="Python" width="50">
+                </div>
                 <h3 class="py">Python</h3>
                 <p class="py">Basic</p>
             </div>
-            
         </div>
     </section>
     <!-- จบส่วนเนื้อหาสกิล -->
-    <section id="Certificate">
-        <!-- เริ่มส่วนcertificate -->
-        <hr class="divider">
-        <h1 class="Certificate">Certificate</h1>
+
+    <!-- เริ่มส่วน Project -->
+    <section id="projects" class="section-page">
+        <h1 class="Certificate">Projects</h1>
+        <div class="grid">
+            <!-- Project 1: รูปเดียว -->
+            <div class="project-item" 
+                 data-title="AI Face" 
+                 data-desc="งานชิ้นนี้เป็นงานที่ทำส่งคุณครูในวิชาโครงานวิทยาศาสตร์พลังสิบ ถือว่าเป็นงานทวนความรู้ที่ฝึกมาตลอดครับ" 
+                 data-images="/project/AI Face/1.jpg,/project/AI Face/2.png,/project/AI Face/3.png,/project/AI Face/4.png">
+                <img src="/project/AI Face/1.jpg" alt="AI Face">
+                <div class="project-info">
+                    <h3>AI Face</h3>
+                    <p>Click for details</p>
+                </div>
+            </div>
+
+            <!-- Project 2: หลายรูป (ใส่ URL คั่นด้วย ,) -->
+            <div class="project-item" 
+                 data-title="รถตัดหญ้าอัตโนมัติ" 
+                 data-desc="โครงงานนี้เป็นโครงงานแรกของผมที่ได้ทำงานที่เป็นชิ้นงานจริงและเป็นรายการแรกที่นำชิ้นงานนี้ไปแข่งและสามารถนำรางวัลเหรียญทองกลับมาได้ครับ" 
+                 data-images="/project/รถตัดหญ้า/with t.jpg,/project/รถตัดหญ้า/2.jpg">
+                <img src="/project/รถตัดหญ้า/with t.jpg" alt="รถตัดหญ้าอัตโนมัติ">
+                <div class="project-info">
+                    <h3>รถตัดหญ้าอัตโนมัติ</h3>
+                    <p>Click for details</p>
+                </div>
+            </div>
+        </div>
+        <!-- เริ่มส่วนcertificate เดิม (Comment ไว้ตามคำขอ) -->
+        <!-- 
         <section id="Certificate">
+            <h1 class="Certificate">Certificate</h1>
             <div class="grid">
                 <div class="certificate-item">
                     <img src="/certificate/01.jpg" alt="Certificate 1">
@@ -155,35 +183,59 @@
                 <div class="certificate-item">
                     <img src="/certificate/11.png" alt="Certificate 8">
                 </div>
-                <!-- <div class="certificate-item">
+                 <div class="certificate-item">
                     <img src="/certificate/10.jpeg" alt="Certificate 6">
-                </div> -->
+                </div> 
             </div>
-        </section>
-        <!-- จบส่วนcertificate -->
-        <footer id="footer">
-            <hr class="divider">
-            <footer id="footer">
-                <h1 class="footer">Nawaphon Horthong</h1>
-                <div class="social-icon-footer">
-                    <div class="social-icon-github-footer">
-                        <a href="https://github.com/Nameyaimak" target="_blank">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                    </div>
-                    <div class="social-icon-ig-footer">
-                        <a href="https://www.instagram.com/_nwphtg/" target="_blank">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
-                    <div class="social-icon-face-footer">
-                        <a href="https://www.facebook.com/profile.php?id=100021554280870" target="_blank">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                    </div>
-                </div>
-            </footer>
-<div id="overlay"></div>
-</body>
+        </section> 
+        -->
+        <!-- จบส่วนcertificate เดิม -->
+    </section>
+    </section>
+    <!-- จบส่วน Project -->
 
+    <!-- ส่วนท้าย -->
+    <footer id="footer" class="section-page">
+        <div class="footer-content">
+            <h1 class="footer">Nawaphon Horthong</h1>
+            <div class="social-icon-footer">
+                <div class="social-icon-github-footer">
+                    <a href="https://github.com/Nameyaimak" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+                <div class="social-icon-ig-footer">
+                    <a href="https://www.instagram.com/_nwphtg/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+                <div class="social-icon-face-footer">
+                    <a href="https://www.facebook.com/profile.php?id=100021554280870" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Popup (Multi-Image) -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            
+            <div class="modal-image-container">
+                <i class="fa-solid fa-chevron-left prev-btn"></i>
+                <img id="modal-img" src="" alt="Project Image">
+                <i class="fa-solid fa-chevron-right next-btn"></i>
+            </div>
+            
+            <h2 id="modal-title"></h2>
+            <p id="modal-desc"></p>
+            <!-- ตัวบอกจำนวนรูป -->
+            <p id="image-counter" style="font-size: 0.9rem; color: #888; margin-top: -10px;"></p>
+        </div>
+    </div>
+    
+    <div id="overlay"></div>
+</body>
 </html>
