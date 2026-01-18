@@ -4,178 +4,268 @@ const content = document.querySelector(".content");
 const navContainer = document.querySelector(".nav-container");
 const navLinks = document.querySelectorAll(".nav-container a");
 const navHeader = document.querySelector(".nav-container h1");
-const hrElements = document.querySelectorAll("hr"); // เลือก hr ทั้งหมด
+const hrElements = document.querySelectorAll("hr"); 
 const skillHeader = document.querySelector("h1.skill");
-const certificate = document.querySelector("h1.Certificate");
+const certificate = document.querySelector("h1.Certificate"); 
 const footer = document.querySelector("h1.footer");
-
 
 // ฟังก์ชันสำหรับตั้งค่าธีม
 function applyTheme(isDarkMode) {
+    const projectItems = document.querySelectorAll(".project-item");
+    const projectInfo = document.querySelectorAll(".project-info h3");
+
     if (isDarkMode) {
-        // โหมดมืด
-        document.body.style.backgroundColor = "#242424";
-        background.style.backgroundColor = "#242424";
-        content.style.backgroundColor = "#242424";
+        // --- Dark Mode ---
+        document.body.style.backgroundColor = "#121212";
+        content.style.backgroundColor = "#121212";
         content.style.color = "#ffffff";
-        navContainer.style.backgroundColor = "#242424";
-        navLinks.forEach(link => {
-            link.style.color = "#ffffff";
-        });
+        
+        navLinks.forEach(link => link.style.color = "#ffffff");
         navHeader.style.color = "#ffffff";
         skillHeader.style.color = "#ffffff";
-        certificate.style.color = "#ffffff";
+        if(certificate) certificate.style.color = "#ffffff";
         footer.style.color = "#ffffff";
 
-        // เปลี่ยนสี <hr> ทุกตัวเป็นสีขาว
-        hrElements.forEach(hr => {
-            hr.style.backgroundColor = "#ffffff"; // เปลี่ยนสี hr
+        hrElements.forEach(hr => hr.style.backgroundColor = "#ffffff");
+
+        // Skill colors
+        document.querySelectorAll(".skill h3, .skill p").forEach(skill => skill.style.color = "#ffffff");
+        document.querySelectorAll(".html-img, .css-img, .js-img, .cpp-img, .py-img").forEach(box => {
+            box.style.backgroundColor = "#333"; 
+            box.style.boxShadow = "0 0 25px #00b7ff"; 
         });
 
-        // เปลี่ยนสีส่วนของ skills
-        const skillElements = document.querySelectorAll(".skill h3, .skill p");
-        skillElements.forEach(skill => {
-            skill.style.color = "#ffffff"; // เปลี่ยนสีข้อความ
-        });
-
-        const skillBoxes = document.querySelectorAll(".html-img, .css-img, .js-img, .cpp-img, .py-img");
-        skillBoxes.forEach(box => {
-            box.style.backgroundColor = "#ffffff"; // พื้นหลังสีขาว
-            box.style.boxShadow = "0 0 25px #00b7ff"; // เงาสีฟ้า เปลี่ยนสีเงาตรงนี้
-        });
-
+        // Profile Box
         const boxElement = document.querySelector(".box");
-        if (boxElement) {
-            boxElement.style.boxShadow = "0 0 25px 5px #00b7ff"; // กรอบเรืองแสงสีฟ้า เปลี่ยนสีเงาตรงนี้
-        }
+        if (boxElement) boxElement.style.boxShadow = "0 0 25px 5px #00b7ff"; 
+
+        // Project Items (Glow, No Border)
+        projectItems.forEach(item => {
+            item.style.backgroundColor = "#242424";
+            item.style.boxShadow = "0 0 20px #00b7ff"; 
+            item.style.border = "none";
+        });
+        
+        projectInfo.forEach(info => info.style.color = "#ffffff");
+
     } else {
-        // โหมดสว่าง
+        // --- Light Mode ---
         document.body.style.backgroundColor = "#ffffff";
-        background.style.backgroundColor = "#ffffff";
         content.style.backgroundColor = "#ffffff";
         content.style.color = "#000000";
-        navContainer.style.backgroundColor = "#ffffff";
-        navLinks.forEach(link => {
-            link.style.color = "#000000";
-        });
+        
+        navLinks.forEach(link => link.style.color = "#000000");
         navHeader.style.color = "#000000";
         skillHeader.style.color = "#000000";
-        certificate.style.color = "#000000";
+        if(certificate) certificate.style.color = "#000000";
         footer.style.color = "#000000";
 
-        // เปลี่ยนสี <hr> ทุกตัวเป็นสีดำ
-        hrElements.forEach(hr => {
-            hr.style.backgroundColor = "#000000"; // เปลี่ยนสี hr
-        });
+        hrElements.forEach(hr => hr.style.backgroundColor = "#000000");
 
-        // เปลี่ยนสีส่วนของ skills
-        const skillElements = document.querySelectorAll(".skill h3, .skill p");
-        skillElements.forEach(skill => {
-            skill.style.color = "#000000"; // เปลี่ยนสีข้อความ
-        });
-
-        const skillBoxes = document.querySelectorAll(".html-img, .css-img, .js-img, .cpp-img, .py-img");
-        skillBoxes.forEach(box => {
-            box.style.backgroundColor = "#ffffff"; // สีพื้นหลังของกล่อง
-            box.style.boxShadow = "0 0 25px #ff5733"; // เงาสีส้ม เปลี่ยนสีเงาตรงนี้
+        document.querySelectorAll(".skill h3, .skill p").forEach(skill => skill.style.color = "#000000");
+        document.querySelectorAll(".html-img, .css-img, .js-img, .cpp-img, .py-img").forEach(box => {
+            box.style.backgroundColor = "#ffffff"; 
+            box.style.boxShadow = "0 0 25px #ff5733"; 
         });
 
         const boxElement = document.querySelector(".box");
-        if (boxElement) {
-            boxElement.style.boxShadow = "0 0 25px 5px #ff5733"; // กรอบเรืองแสงสีส้ม เปลี่ยนสีเงาตรงนี้
-        }
+        if (boxElement) boxElement.style.boxShadow = "0 0 25px 5px #ff5733"; 
+
+        // Project Items
+        projectItems.forEach(item => {
+            item.style.backgroundColor = "#ffffff";
+            item.style.boxShadow = "0 0 20px #ff5733"; 
+            item.style.border = "none";
+        });
+
+        projectInfo.forEach(info => info.style.color = "#333333");
     }
 }
 
-// ตั้งค่าธีมเมื่อหน้าเว็บโหลด
+// Initial Theme Check
 window.addEventListener("DOMContentLoaded", function () {
-    const isDarkMode = toggleSwitch.checked; // ตรวจสอบสถานะของ toggle
-    applyTheme(isDarkMode); // ใช้ฟังก์ชันตั้งค่าธีม
+    const isDarkMode = toggleSwitch.checked; 
+    applyTheme(isDarkMode); 
 });
 
-// เพิ่ม event listener สำหรับสลับโหมด
 toggleSwitch.addEventListener("change", function () {
-    applyTheme(this.checked); // ใช้ฟังก์ชันตั้งค่าธีมตาม toggle
+    applyTheme(this.checked); 
 });
 
-// CSS transitions สำหรับความสมูท
+// CSS Transitions
 document.querySelectorAll('*').forEach(element => {
     element.style.transition = "all 0.1s ease-in-out";
 });
 
-// ฟังก์ชันพิมพ์ข้อความอัตโนมัติ
-const texts = [
-    "Nawaphon Horthong"
-];
-let speed = 100; // ความเร็วในการพิมพ์
-let eraseSpeed = 50; // ความเร็วในการลบ
-
+// Typing Effect
+const texts = ["Nawaphon Horthong"];
+let speed = 100; 
+let eraseSpeed = 50; 
 const textElements = document.querySelector("span.name");
-
 let textIndex = 0;
 let characterIndex = 0;
-let currentText = ""; // เก็บข้อความที่พิมพ์แล้ว
+let currentText = ""; 
 
 function typeWriter() {
+    if(!textElements) return; 
     if (characterIndex < texts[textIndex].length) {
-        // พิมพ์ข้อความใหม่ทีละตัว
         currentText += texts[textIndex].charAt(characterIndex);
-        textElements.innerHTML = currentText; // แสดงข้อความที่พิมพ์แล้ว
+        textElements.innerHTML = currentText; 
         characterIndex++;
-        setTimeout(typeWriter, speed); // พิมพ์ตัวถัดไป
+        setTimeout(typeWriter, speed); 
     } else {
-        // เมื่อพิมพ์เสร็จ ให้เริ่มลบข้อความใหม่ที่พิมพ์
-        setTimeout(eraseText, 1000); // รอ 1 วินาที
+        setTimeout(eraseText, 1000); 
     }
 }
 
 function eraseText() {
+    if(!textElements) return;
     if (characterIndex > 0) {
-        // ลบทีละตัวจากข้อความที่พิมพ์
         currentText = currentText.slice(0, -1);
-        textElements.innerHTML = currentText; // อัปเดตข้อความที่แสดง
+        textElements.innerHTML = currentText; 
         characterIndex--;
-        setTimeout(eraseText, eraseSpeed); // ลบตัวถัดไป
+        setTimeout(eraseText, eraseSpeed); 
     } else {
-        // เมื่อข้อความที่พิมพ์ลบหมดแล้ว ไปที่ข้อความถัดไป
-        textIndex = (textIndex + 1) % texts.length; // ไปที่ข้อความถัดไป
-        setTimeout(typeWriter, 500); // รอ 500ms ก่อนเริ่มพิมพ์ข้อความใหม่
+        textIndex = (textIndex + 1) % texts.length; 
+        setTimeout(typeWriter, 500); 
+    }
+}
+window.onload = typeWriter;
+
+// Hamburger Menu
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.querySelector('.menu');
+  if(menuToggle && menu) {
+      menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('show');
+        menuToggle.classList.toggle('active');
+      });
+  }
+  const darkToggle = document.getElementById('darkmode-toggle');
+  if(darkToggle) {
+      darkToggle.addEventListener('change', () => {
+        document.body.classList.toggle('darkmode', darkToggle.checked);
+      });
+  }
+});
+
+// --- Project Modal Logic (Multi-Image Support) ---
+const projectItems = document.querySelectorAll('.project-item');
+const modal = document.getElementById('project-modal');
+const modalImg = document.getElementById('modal-img');
+const modalTitle = document.getElementById('modal-title');
+const modalDesc = document.getElementById('modal-desc');
+const imageCounter = document.getElementById('image-counter'); // ตัวบอกจำนวนรูป
+const closeBtn = document.querySelector('.close-btn');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+
+let currentImages = []; // เก็บรายชื่อรูปภาพของโปรเจกต์ปัจจุบัน
+let currentImageIndex = 0; // ตำแหน่งรูปปัจจุบัน
+
+// ฟังก์ชันอัปเดตรูปภาพใน Modal
+function updateModalImage() {
+    if (currentImages.length > 0) {
+        modalImg.src = currentImages[currentImageIndex];
+        
+        // แสดงจำนวนรูป (ถ้ามีมากกว่า 1)
+        if (currentImages.length > 1) {
+            imageCounter.style.display = "block";
+            imageCounter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+            prevBtn.style.display = "block";
+            nextBtn.style.display = "block";
+        } else {
+            imageCounter.style.display = "none";
+            prevBtn.style.display = "none";
+            nextBtn.style.display = "none";
+        }
     }
 }
 
-// เริ่มทำงานเมื่อโหลดหน้าจอ
-window.onload = typeWriter;
-// ----------- เมนูมือถือ (hamburger menu) ------------
- document.addEventListener('DOMContentLoaded', () => {
-  // ปุ่ม hamburger menu
-  const menuToggle = document.getElementById('menu-toggle');
-  const menu = document.querySelector('.menu');
+if (projectItems.length > 0 && modal) {
+    projectItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // ดึงข้อมูลรูปภาพ (แยกด้วย comma)
+            const imagesAttr = item.getAttribute('data-images');
+            
+            // ถ้ามี data-images ให้ใช้ ถ้าไม่มีให้ใช้ src จาก img tag
+            if (imagesAttr) {
+                currentImages = imagesAttr.split(',').map(src => src.trim());
+            } else {
+                const img = item.querySelector('img').src;
+                currentImages = [img];
+            }
+            
+            const title = item.getAttribute('data-title');
+            const desc = item.getAttribute('data-desc');
 
-  menuToggle.addEventListener('click', () => {
-    menu.classList.toggle('show');
-    menuToggle.classList.toggle('active');
-  });
+            // Reset Index
+            currentImageIndex = 0;
+            
+            // อัปเดตข้อมูล
+            updateModalImage();
+            modalTitle.textContent = title;
+            modalDesc.textContent = desc;
+            
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden"; 
+        });
+    });
 
-  // ปุ่ม toggle dark mode
-  const darkToggle = document.getElementById('darkmode-toggle');
+    // ปุ่มปิด
+    if(closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        });
+    }
 
-  darkToggle.addEventListener('change', () => {
-    document.body.classList.toggle('darkmode', darkToggle.checked);
-  });
-});
+    // คลิกข้างนอกปิด
+    window.addEventListener('click', (e) => {
+        if (e.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    });
+
+    // ปุ่มถัดไป
+    if(nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            currentImageIndex++;
+            if (currentImageIndex >= currentImages.length) {
+                currentImageIndex = 0; // วนกลับไปรูปแรก
+            }
+            updateModalImage();
+        });
+    }
+
+    // ปุ่มย้อนกลับ
+    if(prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentImageIndex--;
+            if (currentImageIndex < 0) {
+                currentImageIndex = currentImages.length - 1; // วนไปรูปสุดท้าย
+            }
+            updateModalImage();
+        });
+    }
+}
+
+// --- Logic เดิมสำหรับ Certificate (เผื่อไว้ถ้ายังใช้) ---
 const images = document.querySelectorAll('.certificate-item img');
 const overlay = document.getElementById('overlay');
 
-images.forEach(img => {
-  img.addEventListener('click', () => {
-    img.classList.add('active');
-    overlay.classList.add('active');
-  });
-});
+if(images.length > 0 && overlay) {
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        img.classList.add('active');
+        overlay.classList.add('active');
+      });
+    });
 
-overlay.addEventListener('click', () => {
-  images.forEach(img => img.classList.remove('active'));
-  overlay.classList.remove('active');
-});
-    
-
+    overlay.addEventListener('click', () => {
+      images.forEach(img => img.classList.remove('active'));
+      overlay.classList.remove('active');
+    });
+}
